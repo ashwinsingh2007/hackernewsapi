@@ -14,7 +14,7 @@ var cors = require("cors");
 var app = express();
 
 app.use(cors());
-const allowedOrigins = ["http://localhost:3000", "http://localhost:3001", "http://hackernewsweb.s3-website.ap-south-1.amazonaws.com/"];
+const allowedOrigins = ["http://localhost:3000", "http://localhost:3001", "http://hackernewsweb.s3-website.ap-south-1.amazonaws.com"];
 app.use(
   cors({
     origin: function(origin, callback) {
