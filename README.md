@@ -31,3 +31,12 @@ sequqlize db:migrate
 ```javascript
 yarn start
 ```
+
+
+##Language
+
+```
+Nodejs
+Framework: Express
+Database: PostgreSql
+```
