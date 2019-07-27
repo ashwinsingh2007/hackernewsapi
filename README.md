@@ -16,11 +16,11 @@ Use the package manager [yarn](https://yarnpkg.com/en/) or npm to install depend
 yarn install or npm install
 ```
 
-Install Database client [PostgreSql] (https://www.postgresql.org/download/).
-Set username and password [setup username and password instruction] (https://enterprise.arcgis.com/en/server/10.3/cloud/amazon/change-default-database-passwords-on-linux.htm)
+Install Database client [PostgreSql](https://www.postgresql.org/download/).
+Set username and password [setup username and password instruction](https://enterprise.arcgis.com/en/server/10.3/cloud/amazon/change-default-database-passwords-on-linux.htm)
 
 ```
-By default its is set to
+By default it is set to
 username: "postgres",
 password: "postgres",
 ```
