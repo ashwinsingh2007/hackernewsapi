@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       createdAt: { type: DataTypes.DATE, field: "created_at" },
       updatedAt: { type: DataTypes.DATE, field: "updated_at" }
     },
-    { tableName: "usershackernew4" }
+    { tableName: "usershackernew" }
   );
   return Users;
 };

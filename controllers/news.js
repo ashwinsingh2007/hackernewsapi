@@ -4,8 +4,6 @@ const News = require("../models").News;
 module.exports = {
   create(req, res) {
     const { title, links, users } = req.body;
-    console.log("sdfs", req.body, "dfs", req.query);
-    console.log();
     return News.create({
       title,
       links,
@@ -18,7 +16,6 @@ module.exports = {
   },
 
   async list(req, res) {
-    console.log("asdasdsadad");
     let comments = await Comments.findAll({
       attributes: ["id", "newsId"]
     });
@@ -28,7 +25,7 @@ module.exports = {
     })
       .then(news => {
         const formatedNews = news.map(nw => ({
-          by: "anonymous",
+          by: nw.username,
           id: nw.id,
           title: nw.title,
           url: nw.links,
@@ -45,7 +42,6 @@ module.exports = {
 
   async getById(req, res) {
     const { id } = req.params;
-    console.log("asdasdsadad");
     try {
       let news = await News.findAll({
         order: [["createdAt", "DESC"]],
@@ -60,14 +56,13 @@ module.exports = {
           newsId: id
         }
       });
-      console.log(comments);
       let kids = {};
       comments.forEach(ct => {
         kids[ct.id] = {
           id: ct.id,
           username: ct.username,
           mainTread: ct.objectId === null,
-          by: "anonymous",
+          by: ct.username || "Anonymous",
           parent: news.id,
           text: ct.comments,
           type: "comment",
@@ -84,12 +79,13 @@ module.exports = {
         formatedKids.push(kids[key]);
       });
       const resultantComments = {
-        by: "Anonymous",
+        by: news.username || 'Anonymous',
         id: news.id,
         kids: formatedKids.filter(ft => ft.mainTread === true),
         kidsLength: formatedKids.length,
         title: news.title,
-        url: news.links
+        url: news.links,
+        username: news.username
       };
       res.status(200).send(resultantComments);
     } catch (e) {

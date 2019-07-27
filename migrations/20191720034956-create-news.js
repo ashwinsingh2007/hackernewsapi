@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("news4", {
+    return queryInterface.createTable("news", {
       id: {
         allowNull: false,
         autoIncrement: true,

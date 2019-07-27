@@ -14,6 +14,7 @@ router.get('/', function(req, res, next) {
 router.get('/api/news', newsController.list);
 router.get('/api/news/:id', newsController.getById);
 router.post('/api/comments/:id', commentsController.create);
+router.post('/api/comments/edit/:id', commentsController.update);
 router.post('/api/news', newsController.create);
 router.post('/api/users/signup', usersController.create);
 router.post('/api/users/login', usersController.validate);

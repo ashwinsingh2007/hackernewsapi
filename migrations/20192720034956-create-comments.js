@@ -1,17 +1,29 @@
-"use strict";
+'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("usershackernew4", {
+    return queryInterface.createTable('news_comments', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      username: {
+      comments: {
         type: Sequelize.STRING
       },
-      password: {
+      newsId: {
+        type: Sequelize.INTEGER, 
+        field: "news_id",
+      },
+      objectId: {
+        type: Sequelize.INTEGER, 
+        field: "object_id",
+      },
+      objectType: { 
+        type: Sequelize.STRING, 
+        field: "object_type" ,
+      },
+      username: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -29,6 +41,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("usershackernew4");
+    return queryInterface.dropTable('news_comments_test');
   }
 };

@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       createdAt: { type: DataTypes.DATE, field: "created_at" },
       updatedAt: { type: DataTypes.DATE, field: "updated_at" }
     },
-    { tableName: "news_comments4" }
+    { tableName: "news_comments" }
   );
 
   // Classroom.associate = function(models) {
